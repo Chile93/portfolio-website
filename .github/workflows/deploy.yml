@@ -22,11 +22,14 @@ jobs:
 
       - name: Sync files to S3
         run: |
+          echo "Syncing to bucket: ${{ secrets.S3_BUCKET_NAME }}"
+          echo "Region: ${{ secrets.AWS_REGION }}"
           aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude ".gitignore" \
             --exclude "*.md" \
+            --region ${{ secrets.AWS_REGION }} \
             --delete
 
       - name: Invalidate CloudFront cache
