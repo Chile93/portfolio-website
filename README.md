@@ -6,7 +6,7 @@
 
 ## Live Site
 
-🌐 **[chineduagwunobi.com](https://chineduagwunobi.com)** *(update with your CloudFront/custom domain URL)*
+🌐 **[dn1quuyu5ewmr.cloudfront.net](https://dn1quuyu5ewmr.cloudfront.net)** *(update with your custom domain once configured)*
 
 ---
 
