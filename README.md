@@ -274,3 +274,60 @@ London, UK
 ---
 
 *Built with passion. Deployed on AWS. Open to Data Engineering, Cloud Architecture, and Data Science opportunities.*
+
+---
+
+## Custom Domain Setup (GoDaddy + AWS ACM + CloudFront)
+
+The site is accessible via a custom domain registered on GoDaddy, secured with a free SSL certificate from AWS Certificate Manager (ACM), and served through CloudFront.
+
+### Architecture
+
+```
+User visits chinedueagwunobi.co.uk
+        │
+        ▼
+GoDaddy Domain Forwarding (301 redirect)
+chinedueagwunobi.co.uk  →  www.chinedueagwunobi.co.uk
+        │
+        ▼
+GoDaddy DNS (CNAME record)
+www.chinedueagwunobi.co.uk  →  dn1quuyu5ewmr.cloudfront.net
+        │
+        ▼
+AWS CloudFront Distribution (E31M1DPGZ33J2N)
+- HTTPS enforced (redirect HTTP → HTTPS)
+- SSL certificate from AWS ACM
+- TLS 1.2 minimum
+        │
+        ▼
+Amazon S3 (eu-west-2)
+chinedu-agwunobi-portfolio
+        │
+        ▼
+index.html served to user
+```
+
+### DNS Records in GoDaddy
+
+| Type | Name | Value | Purpose |
+|------|------|-------|---------|
+| `CNAME` | `www` | `dn1quuyu5ewmr.cloudfront.net` | Points www to CloudFront |
+| `Forwarding` | `@` | `https://www.chinedueagwunobi.co.uk` | Redirects root to www |
+| `CNAME` | `_67e8771dc27889bd94131b109041defc` | `_f0e0dabe6c74451ed1b0a67896d509bb.jkddzztszm.acm-validations.aws` | ACM SSL validation |
+| `CNAME` | `_85d34f33907b5ccbb93921d31f95e9ae.www` | `_966f924519de4e019c3a385ab774cdbb.jkddzztszm.acm-validations.aws` | ACM SSL validation (www) |
+
+### SSL Certificate
+
+- Provider: AWS Certificate Manager (ACM)
+- Region: `us-east-1` (required for CloudFront)
+- ARN: `arn:aws:acm:us-east-1:339713159705:certificate/a6ce3e45-c1b8-40c7-9f75-2f0f1497347a`
+- Domains covered: `chinedueagwunobi.co.uk` and `www.chinedueagwunobi.co.uk`
+- Validation method: DNS (CNAME records in GoDaddy)
+- Status: Issued
+
+### To Renew or Update the Domain Setup
+
+ACM certificates auto-renew as long as the validation CNAME records remain in GoDaddy DNS — do not delete them.
+
+If you ever change domain registrar, recreate the same 4 DNS records above in the new provider.
