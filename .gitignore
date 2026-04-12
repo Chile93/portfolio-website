@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+
+# Old CV files (not needed in repo)
+cloud architect CV.docx
+data engineer CV1.docx
+data engineer CV2.docx
+data scientist CV.docx
+senior data engineer CV.docx
+solution architect CV.docx
+Chinedu Agwunobi CV.docx
+
+# Word temp files
+~$*
