@@ -27,8 +27,24 @@ const projects = [
   },
   {
     category: 'de',
-    icon: 'fas fa-trophy',
-    title: 'Olympic Data Analytics: Azure End-to-End Pipeline',
+    icon: 'fas fa-water',
+    title: 'Azure Water Quality Pipeline — Medallion Architecture',
+    desc: 'Processed 1M+ rows of European water sensor data through a Bronze, Silver, and Gold medallion architecture. Infrastructure provisioned via Terraform, transformations in Databricks with Scala, and insights delivered via Power BI DAX dashboards across multiple European countries.',
+    arch: ['Bronze Layer', 'Silver Layer', 'Gold Layer', 'Terraform IaC', 'Power BI'],
+    tags: ['Azure Databricks', 'ADF', 'Terraform', 'Scala', 'Power BI', 'DAX', 'Medallion Architecture'],
+    link: 'https://github.com/Chile93',
+    lang: 'azure', langLabel: 'Azure'
+  },
+  {
+    category: 'de',
+    icon: 'fas fa-music',
+    title: 'Spotify Data Pipeline with Apache Airflow',
+    desc: 'Automated Spotify API extraction and S3 storage orchestrated by Apache Airflow on EC2 for scalable, scheduled data pipeline execution. Demonstrates production-grade workflow orchestration and API integration patterns.',
+    arch: ['Spotify API', 'Airflow DAG', 'EC2 Orchestration', 'S3 Storage', 'Python'],
+    tags: ['Apache Airflow', 'AWS EC2', 'Amazon S3', 'Python', 'REST API', 'Orchestration'],
+    link: 'https://github.com/Chile93',
+    lang: 'python', langLabel: 'Python'
+  },
     desc: 'Full end-to-end Azure data engineering project ingesting, transforming, and analysing Olympic Games data. Built with Azure Data Factory for orchestration, Azure Data Lake Gen2 for storage, Azure Databricks for transformation, and Azure Synapse Analytics for querying and reporting.',
     arch: ['ADF Ingest', 'Data Lake Gen2', 'Databricks Transform', 'Synapse Analytics', 'Power BI'],
     tags: ['Azure Data Factory', 'Azure Databricks', 'Azure Synapse', 'Data Lake Gen2', 'Power BI'],
