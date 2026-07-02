@@ -45,6 +45,10 @@ const projects = [
     link: 'https://github.com/Chile93/Spotify-Airflow-Data-Pipeline',
     lang: 'python', langLabel: 'Python'
   },
+  {
+    category: 'de',
+    icon: 'fas fa-trophy',
+    title: 'Olympic Data Analytics: Azure End-to-End Pipeline',
     desc: 'Full end-to-end Azure data engineering project ingesting, transforming, and analysing Olympic Games data. Built with Azure Data Factory for orchestration, Azure Data Lake Gen2 for storage, Azure Databricks for transformation, and Azure Synapse Analytics for querying and reporting.',
     arch: ['ADF Ingest', 'Data Lake Gen2', 'Databricks Transform', 'Synapse Analytics', 'Power BI'],
     tags: ['Azure Data Factory', 'Azure Databricks', 'Azure Synapse', 'Data Lake Gen2', 'Power BI'],
